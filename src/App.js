@@ -1,5 +1,4 @@
 import TextField from "@mui/material/TextField";
-import Button from "@mui/joy/Button";
 import { useState } from "react";
 import { useEffect } from "react";
 import ToDo from "./ToDo";
@@ -23,6 +22,7 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("localTasks", JSON.stringify(tasks));
   }, [tasks]);
+
   const completedTask = (id) => {
     let mapped = tasks.map((task) => {
       return task.id === id
@@ -32,8 +32,13 @@ export default function App() {
     setTasks(mapped);
   };
 
+  const deleteTask = (id) => {
+    const deleted = tasks.filter((task) => task.id !== id);
+    setTasks(deleted);
+  };
+
   const addTask = (e) => {
-    if (inputs) {
+    if (!inputs.task == "") {
       const newTask = { ...inputs, id: new Date().getTime().toString() };
       setTasks([...tasks, newTask]);
       setinputs({
@@ -41,6 +46,8 @@ export default function App() {
         assignee: "",
         isCompleted: false,
       });
+    } else {
+      alert("you shoud enter some task");
     }
   };
 
@@ -69,15 +76,7 @@ export default function App() {
               setinputs((values) => ({ ...values, assignee: e.target.value }))
             }
           />
-          <Button
-            
-            onClick={addTask}
-            size="lg"
-            variant="solid"
-            className="Button"
-          >
-            Add
-          </Button>
+          <button onClick={addTask}>Add</button>
         </div>
       </div>
       <div className="list">
@@ -87,6 +86,7 @@ export default function App() {
               {...task}
               key={task.id}
               onDoneClick={completedTask}
+              onDelete={deleteTask}
               tasks={tasks}
             />
           );

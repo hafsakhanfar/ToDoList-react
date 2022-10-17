@@ -6,47 +6,60 @@ body {
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 50%;
   width: 25%;
   padding: 15px;
   margin: auto;
-  margin-top: 15%;
+  margin-top: 5%;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-  border: white solid .1rem;
-  border-radius: .5rem;
+  border: white solid 0.1rem;
+  border-radius: 0.5rem;
+}
+h1 {
+  text-align: center;
+  margin: 5px;
 }
 
 .modal {
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
   font-weight: bold;
   position: relative;
   background-color: #fefefe;
+  text-align: center;
+  justify-content: center;
   margin: auto;
-  margin-top: 20%;
-  padding: 20px;
-  padding-left: 70px;
+  margin-top: -10%;
+  padding: 25px;
+
   border: 1px solid #888;
   border-radius: 0.5rem;
   width: 18%;
+  z-index: 1000;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 button {
-  margin: 10px;
+  background-color: #405cf5;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.1) 0 2px 5px 0, rgba(0, 0, 0, 0.07) 0 1px 1px 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 10px 12px;
+  outline: none;
+  position: relative;
+  text-align: center;
+  width: 75px;
+  padding: 10px;
 }
 
+.deleteButton {
+  background-color: rgb(189, 189, 189);
+}
 .input {
   margin: 12px;
   display: flex;
@@ -69,10 +82,11 @@ button {
 .toDo {
   display: flex;
   width: 95%;
-  border: 1.5px solid;
+  border: rgba(90, 92, 94, 0.534) 1.5px solid;
   border-radius: 0.3rem;
   padding: 5px;
-  margin-top: 5px;
+  margin-top: 7px;
+  box-shadow: rgba(90, 92, 94, 0.534) 0px 12px 10px -12px;
 }
 
 .completed {
